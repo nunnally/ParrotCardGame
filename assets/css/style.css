@@ -12,156 +12,84 @@ body {
 
 h1 {
     text-align: center;
-    width: 90%;
     max-width: 550px;
     font-family: 'Roboto', sans-serif;
-    font-size: calc(27.3px + 2.6vw);
+    font-size: calc(27.3px + 2vw);
     margin: 80px 0 30px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #e2fff4;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-header{
-    
-    background:#CF2B2B;
-    height: 90px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 20px 0 0 20px;
-}
-
-header .logo {
-    padding: 20px 0 0 20px;
-}
-header .title {
-    color:#fff;
-    font-size: 45px;
-    font-family: 'Righteous', normal;
-}
-header .subtitle {
-    color:#fff;
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-}
-
-main {
-    padding: 35px 0 0 20px;
-}
-section h2 {
-    font-family: 'Righteous', normal;
-    font-size: 26px;
-}
-
-section {
-    margin-bottom: 25px !important;
-}
-section:last-of-type{
-    padding-bottom: 110px;
-}
-
-.itens{
-    margin-top: 17px;
-    width: 100%;
+.flex {
     display: flex;
-    overflow: scroll;
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  /* Firefox */
-}
-.itens::-webkit-scrollbar {
-    display: none;
-}
-.itens li{
-    width: 172px;
-    background-color: #fff;
-    border-radius: 9px;
-    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    margin-right: 16px;
-    padding: 18px 14px 13px 14px;
-    line-height: 19px;
-    position: relative;
-    font-weight: 300;
-    color: #a6a6a6;
-}
-
-.itens .checked{
-    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 5px #32B72F;
-}
-
-.itens li p:nth-child(3){
-    padding-top: 10px;
-    color: black;
-}
-.itens li strong{
-
-    color: black;
-}
-.itens li img{
-    border-radius: 4px;
-    width: 144px;
-    height: 87px;
-    margin-bottom: 8px;
-}
-
-
-
-footer {
-    height: 92px;
-    width: 100%;
-    position: fixed;
-    background-color: #ffffff;
-    bottom: 0;
-    right: 0;
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-
-footer button {
-    width: calc(100% - 50px);
-    height: 60px;
-    border-radius: 50px;
-    border: hidden;
-    background-color: #cbcbcb;
-    color: white;
-    font-size: 20px;
-}
-
-footer .ready {
-    font-weight: bold;
-    background-color:#32B72F;
-}
-
-
-#checkout-screen {
-    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+.card  {
     display: flex;
+    width: 117px;
+    height: 146px;
+    background-image: linear-gradient(to right bottom, #1f5b63, #0c0224);
+    background-color: #1f5b63; 
+    border: 1px solid #394e4d;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 40px;
+    border-radius: 5px;
+    position: relative;    
+    transform-style: preserve-3d;
+    transition: all .4s;
+}
+
+.turn{
+    transform: rotateY(180deg);
+
+}
+
+.back,.front{
     width: 100%;
     height: 100%;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(-180deg);
+}
+
+.blocked {
+    pointer-events: none;
+}
+.card .front.blocked,
+.card .back.blocked {
+  pointer-events: none;
+  width: 117px;
+  height: 146px;
+}
+
+
+.front-face{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+  
+.line-break {
+    width: 100%;
+  }
+
+
+
+
+
+
+#message {
+
     visibility: hidden;
 }
 
@@ -170,50 +98,54 @@ footer .ready {
     visibility: visible !important;
 }
 
+.game-info {
 
-
-.checkout-data{
-    background-color: #50D074;
-    width: calc(100% - 36px);
-    height: 353px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 22px;
-    line-height: 26px;
-    color: #fff;
-    display: flex;
+    vertical-align: middle;
+    margin-top: 10px;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    border: 1px dotted white;
+    height: 50px;
+    background-color: #ffffff67;
 }
 
-.checkout-data table{
-    margin-top: 21px;
-    margin-bottom: 28px;
+.game-info .text{
+    margin: 10px 10px 10px 10px;
+    font-family: 'Roboto', sans-serif;
 }
-.title-checkout{
-    height: 27px;
-    width: 100%;
+
+ion-icon{
+    margin-top: 2px;
+    font-size: 20px;
+    color: #373737;
+
+}
+
+.icon {
+    display: inline-block;
+    font-size: 35px;
+    color: #ffC977;
+    vertical-align: middle;
+   }
+
+   .text{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+
+h3 {
     text-align: center;
-    margin-top: 21px;
-    margin-bottom: 28px;
+    max-width: 550px;
+    font-family: 'Roboto', sans-serif;
+    font-size: calc(13.3px + 2vw);
+    margin: 80px 0 30px;
+    text-transform: uppercase;
+    color: #e2fff4;
 }
 
+.show{
 
-.checkout-data button{
-    width: calc(100% - 50px);
-    height: 52px;
-    border-radius: 100px;
-    border: hidden;
-    font-size: 22px;
-    letter-spacing: 0.018em;
-    font-weight: 700;
-    color:#50d074;
-    background-color: white;
+    visibility: visible !important;
 }
-.checkout-data button a{
-    text-decoration: none;
-    color:#50d074;
-}
-
-
